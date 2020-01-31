@@ -42,7 +42,9 @@ $(document).ready(async function() {
                 var arrayProfile = [];
                 for (var i = 0; i < listItem.length; i++) {
                   var arrHref = listItem[i].href.split('?');
-                  var link = arrHref[0];
+                  var link = arrHref[0].includes('profile.php')
+                    ? arrHref[0] + '?' + arrHref[1].split('&')[0]
+                    : arrHref[0];
                   arrayProfile.push({
                     Name: listItem[i].title,
                     Link: link
